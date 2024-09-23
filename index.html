@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CorteJá</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>MeuSite</h1>
+        </div>
+        <div class="user-actions">
+            <!-- Botão de Login/Cadastro -->
+            <button class="btn login-btn" onclick="openForm('loginForm')">Login/Cadastro</button>
+            <!-- Botão de Registrar Empresa -->
+            <button class="btn business-btn" onclick="openForm('empresaForm')">Cadastrar barbearia</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Seja ousado</h2>
+            <p>Descubra e reserve profissionais de beleza e bem-estar perto de você</p>
+            <div class="search-bar">
+                <input type="text" placeholder="Pesquise serviços ou empresas">
+            </div>
+        </section>
+    </main>
+
+    <!-- Formulário de Login/Cadastro -->
+    <div class="form-popup" id="loginForm">
+        <form class="form-container">
+            <h2>Login/Cadastro</h2>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Digite seu Email" name="EMAIL" id="email" required>
+            
+            <label for="password"><b>Senha</b></label>
+            <input type="password" placeholder="Digite sua Senha" id="password" name="PASSWORD" required>
+
+            <label for="barbeiro">Barbeiro</label>
+            <input type="checkbox" name="BARBEIRO" id="barbeiro">
+
+            <label for="cliente">Cliente</label>
+            <input type="checkbox" id="cliente" name="CLIENTE">
+            <button type="submit" class="btn">Entrar</button>
+            <button type="button" class="btn cancel" onclick="closeForm('loginForm')">Fechar</button>
+        </form>
+    </div>
+
+    <!-- Formulário de Registro de Empresa -->
+    <div class="form-popup" id="empresaForm">
+        <form class="form-container">
+            <h2>Registro de Empresa</h2>
+            <label for="nome"><b>Nome da Empresa</b></label>
+            <input type="text" placeholder="Digite o Nome da Empresa" name="nome" required>
+            
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Digite seu Email" name="email" required>
+            
+            <label for="telefone"><b>Telefone</b></label>
+            <input type="text" placeholder="Digite o Telefone" name="telefone" required>
+            
+            <button type="submit" class="btn">Registrar</button>
+            <button type="button" class="btn cancel" onclick="closeForm('empresaForm')">Fechar</button>
+        </form>
+    </div>
+
+    <script>
+        function openForm(formId) {
+            document.getElementById(formId).style.display = "block";
+        }
+
+        function closeForm(formId) {
+            document.getElementById(formId).style.display = "none";
+        }
+    </script>
+</body>
+</html>
