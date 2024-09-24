@@ -128,38 +128,68 @@ main {
     background-color: #4682B4;
 }
 
-#chk {
-    display: none;
-  }
-  
-  .switch {
+.login-text {
+    font-size: 16px;
+}
+
+.login-text a{
+    font-size: 14px;
+    color: #4682B4;
+    text-decoration: none;
+}
+
+.switch {
     position: relative;
-    background-color: #708090;
+    display: inline-block;
     width: 60px;
-    height: 35px;
-    border-radius: 40px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.toggle-container {
     display: flex;
     align-items: center;
-    padding: 5px;
-    transition: all .5s ease-in-out;
-    cursor: pointer;
-  }
-  
-  .slider {
-    position: absolute;
-    background-color: white;
-    border-radius: 60%;
-    width: 25px;
-    height: 25px;
-    transition: all .5s ease-in-out;
-  }
-  
-  #chk:checked ~ .switch {
-    background-color: #6495ED;
-  }
-  
-  #chk:checked ~ .switch .slider {
-    transform: translateX(25px);
-  }
+    gap: 10px;
+    margin: 15px 0;
+}
 
-
+#toggleText {
+    font-weight: bold;
+}

@@ -5,19 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CorteJá</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">        
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>MeuSite</h1>
+            <h1>CorteJÁ</h1>
         </div>
         <div class="user-actions">
-            <!-- Botão de Login/Cadastro -->
+            <!-- Botão de Login -->
             <button class="btn login-btn" onclick="openForm('loginForm')">Login/Cadastro</button>
+
+            <!-- Botão de Cadastro -->
             <!-- Botão de Registrar Empresa -->
             <button class="btn business-btn" onclick="openForm('empresaForm')">Cadastrar barbearia</button>
         </div>
+
+        <script>
+            function mascaraCPF(campo) {
+                let cpf = campo.value;
+                cpf = cpf.replace(/\D/g, ""); // Remove tudo que não é dígito
+                cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+                cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2");
+                cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+                campo.value = cpf; // Atualiza o campo com a máscara
+            }
+        </script>
     </header>
 
     <main>
@@ -30,28 +43,58 @@
         </section>
     </main>
 
-    <!-- Formulário de Login/Cadastro -->
+
+    <!-- Formulário Login -->
+
     <div class="form-popup" id="loginForm">
         <form class="form-container">
-            <h2>Login/Cadastro</h2>
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Digite seu Email" name="EMAIL" id="email" required>
-            
+            <h2>Login</h2>
+
+            <label for="cpf"><b>CPF</b></label>
+            <input type="text" name="cpf" id="cpf" required maxlength="14" oninput="mascaraCPF(this)">
+
             <label for="password"><b>Senha</b></label>
-            <input type="password" placeholder="Digite sua Senha" id="password" name="PASSWORD" required>
+            <input type="password" name="password" id="password">
 
-            <!-- <label for="barbeiro">Barbeiro</label>
-            <input type="checkbox" name="BARBEIRO" id="barbeiro">
+            <h3 class="login-text">Ainda não tem uma conta?
+                <a href="#" onclick="openRegisterForm()">Realize o seu cadastro!</a>
+            </h3>
 
-            <label for="cliente">Cliente</label>
-            <input type="checkbox" id="cliente" name="CLIENTE"> -->
-
-            <input type="checkbox" id="chk" />
-            <label for="chk" class="switch">
-              <span class="slider"></span>
-            </label>
             <button type="submit" class="btn">Entrar</button>
             <button type="button" class="btn cancel" onclick="closeForm('loginForm')">Fechar</button>
+        </form>
+    </div>
+
+    <!-- Formulário de Login/Cadastro -->
+    <div class="form-popup" id="registerForm">
+        <form class="form-container">
+            <h2 class="user-register">Cadastro</h2>
+
+            <label for="cpf"><b>CPF</b></label>
+            <input type="text" placeholder="Digite o seu CPF" name="cpf" id="cpf" required maxlength="14" oninput="mascaraCPF(this)">
+
+            <label for="name"><b>Nome</b></label>
+            <input type="text" placeholder="Digite seu Nome" name="nome" id="name" required>
+
+            <label for="sobrenome"><b>Sobrenome</b></label>
+            <input type="text" placeholder="Digite o seu sobrenome" name="sobrenome" id="sobrenome" required>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Digite seu E-mail" name="email" id="email" required>
+            
+            <label for="password"><b>Senha</b></label>
+            <input type="password" placeholder="Digite sua Senha" id="password" name="password" required>
+
+            <div class="toggle-container">
+                <span id="toggleText">Cliente</span>
+                <label class="switch">
+                    <input type="checkbox" id="chk" onclick="toggleRole()">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <button type="submit" class="btn">Cadastrar</button>
+            <button type="button" class="btn cancel" onclick="closeForm('registerForm')">Fechar</button>
         </form>
     </div>
 
@@ -81,6 +124,25 @@
         function closeForm(formId) {
             document.getElementById(formId).style.display = "none";
         }
+
+        function toggleRole() {
+            var toggleText = document.getElementById("toggleText");
+            var checkbox = document.getElementById("chk");
+        
+            if (checkbox.checked) {
+                toggleText.textContent = "Barbeiro";
+            } else {
+                toggleText.textContent = "Cliente";
+            }
+        }
+
+        function openRegisterForm() {
+            // Esconde o formulário de login
+            document.getElementById("loginForm").style.display = "none";
+            // Exibe o formulário de cadastro
+            document.getElementById("registerForm").style.display = "block";
+        }
+        
     </script>
 </body>
 </html>
