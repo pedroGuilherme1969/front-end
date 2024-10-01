@@ -33,6 +33,8 @@ header {
     align-items: center;
 }
 
+
+
 .user-actions .btn {
     background-color: #fff;
     border: none;
@@ -78,42 +80,80 @@ main {
     margin-bottom: 30px;
 }
 
-
-.search-bar input {
-    padding: 15px;
-    width: 300px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
+.search-bar {
+    position: relative;
 }
 
-/* Estilo para os formulários */
+.search-bar input {
+    padding: 15px 15px 15px 40px; /* Espaçamento à esquerda para o ícone */
+    height: 47px;
+    width: 560px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    left: 13px; /* Ajuste a distância do ícone */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    color: #c2c2c3; /* Cor do ícone */
+    font-size: 20px; /* Tamanho do ícone */
+}
+
+
+.overlay {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Cor de fundo escura com opacidade */
+    backdrop-filter: blur(5px); /* Efeito de desfoque */
+    z-index: 8; /* Acima do conteúdo, abaixo do formulário */
+}
+
+/* Estilo para o formulário pop-up */
 .form-popup {
     display: none;
+    justify-content: center;
+    align-items: center;
     position: fixed;
-    bottom: 0;
-    right: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: 3px solid #f1f1f1;
     z-index: 9;
     background-color: white;
     padding: 20px;
     width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
+/* Container flexível para o formulário */
 .form-container {
+    position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .form-container input[type="text"],
 .form-container input[type="password"] {
-    width: 100%;
+    width: 70%;
     padding: 10px;
-    margin: 10px 0;
+    margin-left: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
+/* Botões do formulário */
 .form-container .btn {
     background-color: #6495ED;
     color: white;
@@ -122,6 +162,7 @@ main {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    width: 100%;
 }
 
 .form-container .cancel {
@@ -130,13 +171,15 @@ main {
 
 .login-text {
     font-size: 16px;
+    text-align: center;
 }
 
-.login-text a{
+.login-text a {
     font-size: 14px;
     color: #4682B4;
     text-decoration: none;
 }
+
 
 .switch {
     position: relative;
@@ -193,3 +236,4 @@ input:checked + .slider:before {
 #toggleText {
     font-weight: bold;
 }
+
