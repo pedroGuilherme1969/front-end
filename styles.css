@@ -80,6 +80,11 @@ main {
     margin-bottom: 30px;
 }
 
+.search-container {
+    position: relative;
+    width: 560px;
+}
+
 .search-bar {
     position: relative;
 }
@@ -87,7 +92,7 @@ main {
 .search-bar input {
     padding: 15px 15px 15px 40px; /* Espaçamento à esquerda para o ícone */
     height: 47px;
-    width: 560px;
+    width: 100%;
     border: none;
     border-radius: 10px;
     font-size: 16px;
@@ -96,11 +101,44 @@ main {
 
 .search-icon {
     position: absolute;
-    left: 13px; /* Ajuste a distância do ícone */
+    left: 13px;
     top: 50%;
-    transform: translateY(-50%); /* Centraliza verticalmente */
-    color: #c2c2c3; /* Cor do ícone */
-    font-size: 20px; /* Tamanho do ícone */
+    transform: translateY(-50%);
+    color: #c1c2d3;
+    font-size: 20px;
+}
+
+.filter-options {
+    display: none; /* Oculta a lista de opções inicialmente */
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 60px; /* Ajuste a distância da barra de pesquisa */
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.filter-header {
+    font-size: 14px;
+    font-weight: bold;
+    color: #737373;
+    margin-bottom: 10px;
+    padding-right: 260px; /* Alinhamento à esquerda com os itens */
+    width: 100%; /* Faz com que o texto ocupe a linha inteira */
+    box-sizing: border-box; /* Garante que o padding seja levado em conta no cálculo da largura */
+}
+
+.filter-item {
+    display: inline-block;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 

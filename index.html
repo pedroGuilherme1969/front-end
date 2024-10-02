@@ -30,9 +30,19 @@
         <section class="hero">
             <h2>Corte JÁ</h2>
             <p>Encontre os melhores profissionais de beleza e bem-estar perto de você</p>
-            <div class="search-bar">
-                <i class="fa-solid fa-magnifying-glass search-icon"></i>  <!-- Ícone de lupa -->
-                <input type="text" placeholder="Pesquise serviços ou empresas">               
+            <div class="search-container">
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>  <!-- Ícone de lupa -->
+                    <input type="text" id="searchInput" placeholder="Pesquise serviços ou empresas">
+                </div>
+                <div id="filterOptions" class="filter-options">
+                    <div class="filter-header">Serviços Populares</div> <!-- Cabeçalho -->
+                    <div class="filter-item">Corte de Cabelo</div>
+                    <div class="filter-item">Barba</div>
+                    <div class="filter-item">Corte Infantil</div>
+                    <div class="filter-item">Barba Terapia</div>
+                    <div class="filter-item">Corte de Cabelo + Barba</div>
+                </div>
             </div>
         </section>
     </main>
@@ -117,7 +127,19 @@
         </form>
     </div>
     
-
+    <script>
+        document.getElementById('searchInput').addEventListener('focus', function() {
+            document.getElementById('filterOptions').style.display = 'block';
+        });
+        
+        // Ocultar as opções quando o usuário clica fora da search bar
+        document.addEventListener('click', function(event) {
+            const isClickInside = document.querySelector('.search-container').contains(event.target);
+            if (!isClickInside) {
+                document.getElementById('filterOptions').style.display = 'none';
+            }
+        });
+    </script>
 
 
 

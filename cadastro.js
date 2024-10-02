@@ -152,4 +152,3 @@ document.querySelector(".btn.open-empresa").addEventListener("click", function()
 document.querySelectorAll(".btn.cancel").forEach(function(btn) {
     btn.addEventListener("click", closeForm);
 });
-
