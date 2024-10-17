@@ -6,6 +6,7 @@
     <title>CorteJá</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/856/856572.png">
 
     <script src="cadastro.js"></script>        
 </head>
@@ -16,11 +17,8 @@
         </div>
 
         <div class="user-actions">
-            <!-- Botão de Login -->
             <button class="btn login-btn" onclick="openForm('loginForm')">Login/Cadastro</button>
 
-            <!-- Botão de Cadastro -->
-            <!-- Botão de Registrar Empresa -->
             <button class="btn business-btn" onclick="openForm('empresaForm')">Cadastrar barbearia</button>
         </div>
 
@@ -32,11 +30,11 @@
             <p>Encontre os melhores profissionais de beleza e bem-estar perto de você</p>
             <div class="search-container">
                 <div class="search-bar">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>  <!-- Ícone de lupa -->
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
                     <input type="text" id="searchInput" placeholder="Pesquise serviços ou empresas">
                 </div>
                 <div id="filterOptions" class="filter-options">
-                    <div class="filter-header">Serviços Populares</div> <!-- Cabeçalho -->
+                    <div class="filter-header">Serviços Populares</div>
                     <div class="filter-item">Corte de Cabelo</div>
                     <div class="filter-item">Barba</div>
                     <div class="filter-item">Corte Infantil</div>
@@ -48,7 +46,6 @@
     </main>
 
 
-    <!-- Formulário Login -->
 
     <div class="overlay" id="overlay"></div>
 
@@ -59,20 +56,19 @@
             <label for="cpf1"><b>CPF</b></label>
             <input type="text" name="cpf1" id="cpf1" required maxlength="14" oninput="mascaraCPF(this)">
 
-            <label for="password1"><b>Senha</b></label>
-            <input type="password1" name="password1" id="password1">
+            <label for="password"><b>Senha</b></label>
+            <input type="password" name="password1" id="password">
 
             <h3 class="login-text">Ainda não tem uma conta?
                 <a href="#" onclick="openRegisterForm()">Realize o seu cadastro!</a>
             </h3>
 
-            <button type="submit" class="btn">Entrar</button>
+            <a href="../area_usuario/index.html" class="botao-log"><p>Entrar</p></a>
             <button type="button" class="btn cancel" onclick="closeForm('loginForm')">Fechar</button>
         </form>
     </div>
     
 
-    <!-- Formulário de Cadastro -->
     <div class="form-popup" id="registerForm">
         <form class="form-container">
             <h2 class="user-register">Cadastro</h2>
@@ -106,7 +102,6 @@
     </div>
     
 
-    <!-- Formulário de Registro de Empresa -->
     <div class="form-popup" id="empresaForm">
         <form class="form-container">
             <h2>Registro de Empresa</h2>
@@ -132,7 +127,6 @@
             document.getElementById('filterOptions').style.display = 'block';
         });
         
-        // Ocultar as opções quando o usuário clica fora da search bar
         document.addEventListener('click', function(event) {
             const isClickInside = document.querySelector('.search-container').contains(event.target);
             if (!isClickInside) {

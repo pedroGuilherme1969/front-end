@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* Estilos básicos anteriores */
 * {
     margin: 0;
     padding: 0;
@@ -50,7 +49,7 @@ main {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-image: url('pexels-thgusstavo-1813272.jpg');
+    background-image: url('../assets/pexels-thgusstavo-1813272.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -90,7 +89,7 @@ main {
 }
 
 .search-bar input {
-    padding: 15px 15px 15px 40px; /* Espaçamento à esquerda para o ícone */
+    padding: 15px 15px 15px 40px;
     height: 47px;
     width: 100%;
     border: none;
@@ -109,13 +108,13 @@ main {
 }
 
 .filter-options {
-    display: none; /* Oculta a lista de opções inicialmente */
+    display: none;
     background-color: #fff;
     color: #000;
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: absolute;
-    top: 60px; /* Ajuste a distância da barra de pesquisa */
+    top: 60px;
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
@@ -126,9 +125,9 @@ main {
     font-weight: bold;
     color: #737373;
     margin-bottom: 10px;
-    padding-right: 260px; /* Alinhamento à esquerda com os itens */
-    width: 100%; /* Faz com que o texto ocupe a linha inteira */
-    box-sizing: border-box; /* Garante que o padding seja levado em conta no cálculo da largura */
+    padding-right: 260px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .filter-item {
@@ -143,18 +142,18 @@ main {
 
 
 .overlay {
-    display: none; /* Oculto por padrão */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Cor de fundo escura com opacidade */
-    backdrop-filter: blur(5px); /* Efeito de desfoque */
-    z-index: 8; /* Acima do conteúdo, abaixo do formulário */
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px);
+    z-index: 8;
 }
 
-/* Estilo para o formulário pop-up */
+
 .form-popup {
     display: none;
     justify-content: center;
@@ -172,7 +171,6 @@ main {
     border-radius: 10px;
 }
 
-/* Container flexível para o formulário */
 .form-container {
     position: relative;
     display: flex;
@@ -191,7 +189,6 @@ main {
     border-radius: 5px;
 }
 
-/* Botões do formulário */
 .form-container .btn {
     background-color: #6495ED;
     color: white;
@@ -275,3 +272,17 @@ input:checked + .slider:before {
     font-weight: bold;
 }
 
+.botao-log {
+    width: 250px;
+    height: 40px;
+    background-color: #2196F3;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+.botao-log p{
+    margin-top: 10px;
+    font-size: 14px;
+}
