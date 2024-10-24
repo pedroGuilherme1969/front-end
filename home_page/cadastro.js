@@ -18,6 +18,7 @@ async function cadastroUsuario(){
     let email = document.getElementById('email').value
     let password = document.getElementById('password').value
     let cpf = document.getElementById('cpf').value
+    let barber = document.getElementById('chk').checked
 
     if(!firstName || ! lastName ||!email || !password || !cpf){
         alert("Preencha todos os campos")
@@ -33,7 +34,7 @@ async function cadastroUsuario(){
                  "email": email,
                  "password": password,
                  "cpf": cpf,
-                 "barber": false
+                 "barber": barber,
             }
         ),
         headers:{
@@ -49,35 +50,30 @@ async function cadastroUsuario(){
 }
 
 async function cadastroEmpresa() {
-    const urlBaseApi = "http://127.0.0.1:8081"
+    const urlBaseApi = "http://127.0.0.1:8081";
     const url = "/enterprise/save";
-
-    let firstName = document.getElementById('firstname').value
-    let lastName = document.getElementById('lastname').value
-    let email = document.getElementById('email').value
-    let password = document.getElementById('password').value
-    let cnpj = document.getElementById('cnpj').value
-
-    if(!firstName || ! lastName ||!email || !password || !cnpj){
-        alert("Preencha todos os campos")
-        return
+  
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("passwordE").value;
+    let cnpj = document.getElementById("cnpj").value;
+  
+    if (!name || !email || !password || !cnpj) {
+      alert("Preencha todos os campos");
+      return;
     }
-
-    let api = await fetch(urlBaseApi+url,{
-        method:"POST",
-        body:JSON.stringify(
-            {
-                 "firstName": firstName,
-                 "lastName": lastName,
-                 "email": email,
-                 "password": password,
-                 "cnpj": cnpj,
-                 "barber": false
-            }
-        ),
-        headers:{
-            'Content-Type':'application/json'
-        }
+  
+    let api = await fetch(urlBaseApi + url, {
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+        cnpj: cnpj,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
     if(api.ok){
@@ -138,16 +134,17 @@ async function closeForm() {
     document.getElementById("overlay").style.display = "none"; 
 }
 
-document.querySelector(".btn.open-login").addEventListener("click", function() {
-    openForm("loginForm");
-});
-document.querySelector(".btn.open-register").addEventListener("click", function() {
-    openForm("registerForm");
-});
-document.querySelector(".btn.open-empresa").addEventListener("click", function() {
-    openForm("empresaForm");
+document.addEventListener("DOMContentLoaded", function () {
+  // Exemplo de eventos para abrir os formulários
+  document
+    .querySelector(".btn.open-login").addEventListener("click", function () {openForm("loginForm");});
+
+  document
+    .querySelector(".btn.open-register").addEventListener("click", function () {openForm("registerForm");});
+
+  document
+    .querySelector(".btn.open-empresa").addEventListener("click", function () {openForm("empresaForm");});
+
+  document.querySelectorAll(".btn.cancel").forEach(function (btn) {btn.addEventListener("click", closeForm);});
 });
 
-document.querySelectorAll(".btn.cancel").forEach(function(btn) {
-    btn.addEventListener("click", closeForm);
-});
